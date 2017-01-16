@@ -1,0 +1,57 @@
+{
+  "jcr:primaryType": "cq:WidgetCollection",
+  "enabled": {
+    "jcr:primaryType": "cq:Widget",
+    "xtype": "checkbox",
+    "name": "./enabled",
+    "inputValue": "true",
+    "fieldLabel": "Enabled",
+    "fieldDescription": "Enable this Replication Agent"
+  },
+  "logLevel": {
+    "jcr:primaryType": "cq:Widget",
+    "defaultValue": "error",
+    "name": "./logLevel",
+    "type": "select",
+    "xtype": "selection",
+    "fieldLabel": "Log Level",
+    "options": {
+      "jcr:primaryType": "cq:WidgetCollection",
+      "error": {
+        "jcr:primaryType": "nt:unstructured",
+        "text": "Error",
+        "value": "error"
+      },
+      "info": {
+        "jcr:primaryType": "nt:unstructured",
+        "text": "Info",
+        "value": "info"
+      },
+      "debug": {
+        "jcr:primaryType": "nt:unstructured",
+        "text": "Debug",
+        "value": "debug"
+      }
+    }
+  },
+  "enabledClear": {
+    "jcr:primaryType": "cq:Widget",
+    "xtype": "hidden",
+    "name": "./enabled@Delete",
+    "inputValue": "x"
+  },
+  "serType": {
+    "jcr:primaryType": "cq:Widget",
+    "xtype": "hidden",
+    "name": "./serializationType",
+    "defaultValue": "elastic",
+    "value": "elastic"
+  },
+  "uri": {
+    "jcr:primaryType": "cq:Widget",
+    "xtype": "hidden",
+    "name": "./transportUri",
+    "defaultValue": "elastic:///",
+    "value": "elastic:///"
+  }
+}

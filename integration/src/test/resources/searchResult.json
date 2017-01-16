@@ -1,0 +1,40 @@
+{
+  "took": 2,
+  "timed_out": false,
+  "_shards": {
+    "total": 5,
+    "successful": 4,
+    "failed": 1
+  },
+  "hits": {
+    "total": 2,
+    "max_score": 1,
+    "hits": [
+      {
+        "_index": "idx",
+        "_type": "page",
+        "_id": "299fd3026fff551d5d38a6c3250cd356",
+        "_score": 1,
+        "_source": {
+          "path": "/content/campaigns/we-retail",
+          "jcr:created": 1482402370014,
+          "double": 1.3,
+          "foob": [
+            "bar",
+            "foo"
+          ]
+        }
+      },
+      {
+        "_index": "idx",
+        "_type": "page",
+        "_id": "7dbd309064ce994fb0dc30a88c84be8f",
+        "_score": 1,
+        "_source": {
+          "template": "/libs/cq/personalization/templates/offerfolder",
+          "path": "/content/campaigns/we-retail/master/offer-library/category-teaser"
+        }
+      }
+    ]
+  }
+}

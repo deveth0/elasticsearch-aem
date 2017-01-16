@@ -1,0 +1,31 @@
+{
+    "template": "*",
+    "mappings": {
+        "page": {
+            "_source": {
+                "enabled": true
+            },
+            "properties": {
+                "cq:lastModified": {
+                    "type": "date"
+                },
+                "cq:template": {
+                    "type": "keyword"
+                },
+                "path": {
+                    "type": "keyword"
+                }
+            }
+        },
+        "asset": {
+            "_source": {
+                "enabled": true
+            },
+            "properties": {
+                "jcr:lastModified": {
+                    "type": "date"
+                }
+            }
+        }
+    }
+}

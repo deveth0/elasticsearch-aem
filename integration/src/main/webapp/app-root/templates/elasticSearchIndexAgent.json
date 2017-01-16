@@ -1,0 +1,10 @@
+{
+  "jcr:primaryType": "cq:Template",
+  "jcr:title": "ElasticSearch Index Agent",
+  "ranking": 1,
+  "allowedPaths": "/etc/replication/agent.*",
+  "jcr:content": {
+    "jcr:primaryType": "cq:PageContent",
+    "sling:resourceType": "/apps/deveth0_elastic/components/page/elasticSearchIndexAgent"
+  }
+}

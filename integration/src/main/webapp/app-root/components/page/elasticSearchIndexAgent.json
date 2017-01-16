@@ -1,0 +1,30 @@
+{
+  "jcr:primaryType": "cq:Component",
+  "sling:resourceSuperType": "cq/replication/components/agent",
+  "dialog": {
+    "xtype": "dialog",
+    "height": "512",
+    "title": "Agent Settings",
+    "stateful": "false",
+    "jcr:primaryType": "cq:Dialog",
+    "items": {
+      "xtype": "tabpanel",
+      "jcr:primaryType": "cq:TabPanel",
+      "items": {
+        "jcr:primaryType": "cq:WidgetCollection",
+        "agent": {
+          "title": "Agent",
+          "jcr:primaryType": "cq:Panel",
+          "items": {
+            "jcr:primaryType": "cq:WidgetCollection",
+            "include": {
+              "jcr:primaryType": "cq:Widget",
+              "xtype": "cqinclude",
+              "path": "/apps/deveth0_elastic/components/page/elasticSearchIndexAgent/tab_agent.infinity.json"
+            }
+          }
+        }
+      }
+    }
+  }
+}

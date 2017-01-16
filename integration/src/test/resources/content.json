@@ -1,0 +1,31 @@
+{
+    "foobar": {
+        "jcr:content": {
+            "cq:lastModified": "Fri Sep 23 2016 16:24:52 GMT-0700",
+            "cq:lastModifiedBy": "admin",
+            "cq:template": "/foo/template",
+            "jcr:created": "Thu Dec 22 2016 11:26:10 GMT+0100",
+            "jcr:createdBy": "admin",
+            "jcr:primaryType": "cq:PageContent",
+            "jcr:title": "Foo Title",
+            "sling:resourceType": "foo/components/bar",
+            "cascade": "cascadeValue0",
+            "double": 1.4,
+            "boolean": true,
+            "parsys":{
+              "jcr:primaryType": "nt:unstructured",
+              "foobar": "foobarValue",
+              "cascade": "cascadeValue1",
+              "component":{
+                "jcr:primaryType": "nt:unstructured",
+                "childFoo": "childValue",
+                "multi": ["foobar", "ipsum"],
+                "cascade": "cascadeValue2"
+              }
+            }
+        },
+        "jcr:created": "Thu Dec 22 2016 11:26:10 GMT+0100",
+        "jcr:createdBy": "admin",
+        "jcr:primaryType": "cq:Page"
+    }
+}

@@ -1,0 +1,66 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+<parent>
+    <groupId>io.wcm.maven</groupId>
+    <artifactId>io.wcm.maven.aem-global-parent</artifactId>
+    <version>1.1.2</version>
+    <relativePath />
+  </parent>
+
+  <groupId>de.dev.eth0.elasticsearch</groupId>
+  <artifactId>de.dev.eth0.elasticsearch</artifactId>
+  <version>1</version>
+  <packaging>pom</packaging>
+
+  <name>ElasticSearch AEM Integration - Root</name>
+  <description>Integration of ElasticSearch into AEM.</description>
+
+  <modules>
+    <module>parent</module>
+    <module>integration</module>
+    <module>complete</module>
+  </modules>
+
+  <build>
+    <plugins>
+
+      <!-- do not deploy this hierarchy pom into maven repository -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <configuration>
+          <skip>true</skip>
+        </configuration>
+      </plugin>
+
+      <!-- do not generate site for this project -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <configuration>
+          <skipDeploy>true</skipDeploy>
+        </configuration>
+      </plugin>
+
+    </plugins>
+    <pluginManagement>
+      <plugins>
+
+        <!-- license check -->
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>license-maven-plugin</artifactId>
+          <configuration>
+            <licenseName>apache_v2</licenseName>
+            <addJavaLicenseAfterPackage>false</addJavaLicenseAfterPackage>
+            <projectName>de.dev-eth0</projectName>
+          </configuration>
+        </plugin>
+
+      </plugins>
+    </pluginManagement>
+  </build>
+
+</project>

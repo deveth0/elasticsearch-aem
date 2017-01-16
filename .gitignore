@@ -1,0 +1,31 @@
+# This is the central .gitignore file for all pro!vision GIT repos. Please do not change it on project-level.
+# See https://jira.pvtool.org/confluence/x/IACuBg for details.
+
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+maven-eclipse.xml
+
+node_modules/
+npm-debug.log
+
+.nodejs
+.project
+.classpath
+.settings
+.externalToolBuilders
+.pmd
+.checkstyle
+.idea
+*.iml
+.DS_Store
+.rubygems
+.sass-cache
+.rubygems-gem-maven-plugin
+*.sublime-*
+*nbactions*.xml
+.temp/
+/nbproject/

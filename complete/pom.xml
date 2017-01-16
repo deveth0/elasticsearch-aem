@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>de.dev.eth0.elasticsearch</groupId>
+    <artifactId>elasticsearch-parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <relativePath>../parent/pom.xml</relativePath>
+  </parent>
+
+  <groupId>de.dev.eth0.elasticsearch</groupId>
+  <artifactId>elasticsearch-aem-complete</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>content-package</packaging>
+
+  <name>ElasticSearch AEM Integration - Complete</name>
+  <description>Deployable Package with all dependencies</description>
+  <url>https://www.dev-eth0.de</url>
+  <inceptionYear>2016</inceptionYear>
+  <organization>
+    <name>dev-eth0</name>
+    <url>https://www.dev-eth0.de</url>
+  </organization>
+  <developers>
+    <developer>
+      <name>Alex Muthmann</name>
+    </developer>
+  </developers>
+
+  <properties>
+    <content-package-name>elasticsearch_aem_complete</content-package-name>
+    <content-package-group>dev-eth0.de</content-package-group>
+    <dependency-includeGroupIds>commons-beanutils,de.dev.eth0,com.fasterxml.jackson.core</dependency-includeGroupIds>
+    <dependency-includeArtifactIds>httpasyncclient-osgi</dependency-includeArtifactIds>
+    <created-by>Alex Muthmann</created-by>
+  </properties>
+
+
+  <dependencies>
+    <dependency>
+      <groupId>de.dev.eth0.elasticsearch</groupId>
+      <artifactId>elasticsearch-rest-osgi</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>de.dev.eth0.elasticsearch</groupId>
+      <artifactId>elasticsearch-aem-integration</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>commons-beanutils</groupId>
+      <artifactId>commons-beanutils</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpasyncclient-osgi</artifactId>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <finalName>${content-package-name}-${project.version}</finalName>
+    <plugins>
+
+      <plugin>
+        <groupId>com.day.jcr.vault</groupId>
+        <artifactId>content-package-maven-plugin</artifactId>
+        <configuration>
+          <name>${content-package-name}</name>
+          <group>${content-package-group}</group>
+          <filters>
+            <filter>
+              <root>/apps/${content-package-name}</root>
+            </filter>
+          </filters>
+        </configuration>
+      </plugin>
+      <!-- copy the application's dependencies -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>copy-dependencies-by-groupid</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>copy-dependencies</goal>
+            </goals>
+            <configuration>
+              <outputAbsoluteArtifactFilename>true</outputAbsoluteArtifactFilename>
+              <includeGroupIds>${dependency-includeGroupIds}</includeGroupIds>
+              <outputDirectory>${project.build.directory}/vault-work/jcr_root/apps/${content-package-name}/install</outputDirectory>
+            </configuration>
+          </execution>
+          <execution>
+            <id>copy-dependencies-by-artifactid</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>copy-dependencies</goal>
+            </goals>
+            <configuration>
+              <outputAbsoluteArtifactFilename>true</outputAbsoluteArtifactFilename>
+              <includeArtifactIds>${dependency-includeArtifactIds}</includeArtifactIds>
+              <outputDirectory>${project.build.directory}/vault-work/jcr_root/apps/${content-package-name}/install</outputDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!-- Do not generate eclipse project files -->
+      <plugin>
+        <groupId>io.wcm.devops.maven.plugins</groupId>
+        <artifactId>eclipse-maven-plugin</artifactId>
+        <inherited>true</inherited>
+        <configuration>
+          <skip>true</skip>
+        </configuration>
+      </plugin>
+
+      <!-- Do not deploy sources to repository -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <configuration>
+          <attach>false</attach>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
