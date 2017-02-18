@@ -1,5 +1,3 @@
-# This is the central .gitignore file for all pro!vision GIT repos. Please do not change it on project-level.
-# See https://jira.pvtool.org/confluence/x/IACuBg for details.
 
 target/
 pom.xml.tag
@@ -29,3 +27,4 @@ npm-debug.log
 *nbactions*.xml
 .temp/
 /nbproject/
+.vagrant
