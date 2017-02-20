@@ -1,0 +1,28 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+
+Vagrant.configure(2) do |config|
+  config.vm.box = 'debian/jessie64'
+  config.ssh.forward_agent = true
+
+  # elastic Box
+  config.vm.define 'elastic' do |elastic|
+
+    elastic.vm.provider :virtualbox do |vb, override|
+      override.vm.network :private_network, ip: '192.168.50.10'
+      override.vm.hostname = 'elastic'
+      vb.memory = 2048
+      vb.cpus = 2
+    end
+
+    elastic.vm.provision :ansible_local do |ansible_local|
+      ansible_local.install          = true
+      ansible_local.install_mode     = :pip
+      ansible_local.verbose = true
+      ansible_local.galaxy_role_file = 'requirements.yml'
+      ansible_local.playbook         = 'setup.yml'
+    end
+  end
+
+end
