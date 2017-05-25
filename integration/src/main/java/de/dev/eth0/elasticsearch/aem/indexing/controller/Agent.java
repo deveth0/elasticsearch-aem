@@ -23,6 +23,7 @@ import org.apache.commons.codec.binary.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.Default;
 import org.apache.sling.models.annotations.Optional;
 import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
@@ -39,6 +40,7 @@ public class Agent {
   private boolean valid;
 
   @ValueMapValue
+  @Default(values = "false")
   private String enabled;
 
   @Inject
