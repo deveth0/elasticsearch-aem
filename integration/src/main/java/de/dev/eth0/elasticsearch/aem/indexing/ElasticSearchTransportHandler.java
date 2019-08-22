@@ -182,7 +182,7 @@ public class ElasticSearchTransportHandler implements TransportHandler {
    */
   private ReplicationResult doTest(TransportContext ctx, ReplicationTransaction tx, RestClient restClient) throws ReplicationException, IOException {
     ReplicationLog log = tx.getLog();
-    Response response = restClient.performRxequest("GET", "/", Collections.singletonMap("pretty", "true"));
+    Response response = restClient.performRequest("GET", "/", Collections.singletonMap("pretty", "true"));
     log.info(getClass().getSimpleName() + ": ---------------------------------------");
     log.info(getClass().getSimpleName() + ": " + response.toString());
     log.info(getClass().getSimpleName() + ": " + EntityUtils.toString(response.getEntity()));
