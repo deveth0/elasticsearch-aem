@@ -42,7 +42,7 @@
         <groupId>com.adobe.aem</groupId>
         <artifactId>uber-jar</artifactId>
         <classifier>obfuscated-apis</classifier>
-        <version>6.1.0</version>
+        <version>6.4.0</version>
         <scope>provided</scope>
       </dependency>
       <dependency>
