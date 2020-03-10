@@ -41,6 +41,7 @@ import org.apache.felix.scr.annotations.Reference;
 import org.apache.felix.scr.annotations.Service;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpStatus;
+import org.apache.http.entity.ContentType;
 import org.apache.http.nio.entity.NStringEntity;
 import org.apache.http.util.EntityUtils;
 import org.apache.sling.commons.json.JSONException;
@@ -155,7 +156,7 @@ public class ElasticSearchTransportHandler implements TransportHandler {
       log.debug(getClass().getSimpleName() + ": Index-Content: " + contentString);
       LOG.debug("Index-Content: " + contentString);
 
-      HttpEntity entity = new NStringEntity(contentString, "UTF-8");
+      HttpEntity entity = new NStringEntity(contentString, ContentType.APPLICATION_JSON);
       Response indexResponse = restClient.performRequest(
               "PUT",
               "/" + content.getIndex() + "/" + content.getType() + "/" + DigestUtils.md5Hex(content.getPath()),
