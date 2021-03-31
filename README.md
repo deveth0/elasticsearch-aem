@@ -2,7 +2,7 @@
 
 This repository provides an integration of ElasticSearch into AEM.
 
-Please see my [blog](https://www.dev-eth0.de/blog/2017/01/18/elasticsearch-aem.html) for a detailed introduction and more information.
+Please see my [blog](https://www.dev-eth0.de/2017/01/18/elasticsearch-aem/) for a detailed introduction and more information.
 
 ## Requirements
 
